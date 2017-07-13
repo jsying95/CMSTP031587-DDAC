@@ -1,0 +1,162 @@
+﻿@model WebApplication1.Models.addScheduleViewModel
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Container Management System</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="../../Content/cssfile/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="../../Content/cssfile/font-awesome.css" rel="stylesheet" />
+    <!--CUSTOM BASIC STYLES-->
+    <link href="../../Content/cssfile/basic.css" rel="stylesheet" />
+    <!--CUSTOM MAIN STYLES-->
+    <link href="../../Content/cssfile/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">CMS</a>
+            </div>
+
+            <div class="header-right">
+                <a href="../User/Login" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+            </div>
+        </nav>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+
+
+                    <li>
+                        <a href="../Home/Index"><i class="fa fa-dashboard "></i>Home Page</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-desktop "></i>Container Management <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="Index"><i class="fa fa-toggle-on"></i>View Container</a>
+                            </li>
+                            <li>
+                                <a href="addContainer"><i class="fa fa-bell "></i>Add Container</a>
+                            </li>
+                            <li>
+                                <a href="removeContainer"><i class="fa fa-circle-o "></i>Edit/Remove Container</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Add New Container</h1>
+                        <h1 class="page-subhead-line"></h1>
+
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-6">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                Add New Container
+                            </div>
+                            <div class="panel-body">
+
+                               @using (Html.BeginForm())
+                               {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.containerid, htmlAttributes: new { @class = "control-label col-md-1" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.containerid, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.containerid, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.containeroutdate, htmlAttributes: new { @class = "control-label col-md-1" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.containeroutdate, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.containeroutdate, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.weight, htmlAttributes: new { @class = "control-label col-md-1" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.weight, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.weight, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.destination, htmlAttributes: new { @class = "control-label col-md-1" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.destination, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.destination, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Add" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+                               }
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <div id="footer-sec">
+    </div>
+    <!-- /. FOOTER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="../../Content/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="../../Content/js/bootstrap.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="../../Content/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="../../Content/js/custom.js"></script>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>
